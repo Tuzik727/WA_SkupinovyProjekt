@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Moje Maturita</title>
+	<link rel="stylesheet" href="../css/style.css">
+	<!-- Odkaz na Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+	<!-- Záhlaví stránky -->
+	<header class="bg-secondary py-2 bg-dark">
+		<div class="container">
+			<h1 class="text-light d-flex justify-content-center">Maturita</h1>
+		</div>
+	</header>
+
+	<script>
+		//Skript pro časovač 
+		// Nastavení datumu pro časovač (1. května 2023)
+
+		var countDownDate = new Date("May 1, 2023 00:00:00").getTime();
+
+		// Aktualizace časovače každou sekundu
+		var x = setInterval(function () {
+
+			// Výpočet zbývajícího času
+			var now = new Date().getTime();
+			var distance = countDownDate - now;
+
+			// Výpočet zbývajících dní, hodin, minut a sekund
+			var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+			var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+			var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+			var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+			// Zobrazení zbývajícího času v HTML
+			document.getElementById("days").innerHTML = days;
+			document.getElementById("hours").innerHTML = hours;
+			document.getElementById("minutes").innerHTML = minutes;
+			document.getElementById("seconds").innerHTML = seconds;
+
+			// Pokud je časovač ukončen, zobrazit text
+			if (distance < 0) {
+				clearInterval(countdownInterval);
+				countdownText.textContent = "Maturita začíná!";
+			}
+		});
+	</script>
+
+	<!-- Časovač -->
+	<section class="bg-dark py-3 text-warning">
+		<div class="container">
+			<h2 class="mb-4 d-flex justify-content-center">Čas do začátku maturitní zkoušky z Češtiny</h2>
+			<div class="row justify-content-center">
+				<div class="col-sm-3">
+					<div class="card text-center">
+						<div class="card-body">
+							<h3 id="days" class="card-title">0</h3>
+							<p class="card-text">Dní</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card text-center">
+						<div class="card-body">
+							<h3 id="hours" class="card-title">0</h3>
+							<p class="card-text">Hodin</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card text-center">
+						<div class="card-body">
+							<h3 id="minutes" class="card-title">0</h3>
+							<p class="card-text">Minut</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="card text-center">
+						<div class="card-body">
+							<h3 id="seconds" class="card-title">0</h3>
+							<p class="card-text">Sekund</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Patička stránky -->
+	<footer class="bg-dark text-light py-3">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<p>&copy; 2023 - Projekt maturita</p>
+				</div>
+			</div>
+		</div>
+	</footer>
